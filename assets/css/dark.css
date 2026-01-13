@@ -18,9 +18,9 @@ body.dark .dark-bg{
     background: #0A0A0A;
 }
 
-body.dark .header-area .navigation, body.dark .header-area .container{
-    background: #000;
-}
+    /* body.dark .header-area .navigation, body.dark .header-area .container{
+        background: #000;
+    } */
 
 body.dark .header-areaabsolute-header .navigation, body.dark .header-area .container{
     background: inherit;
