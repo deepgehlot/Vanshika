@@ -47,7 +47,15 @@
 <body class="dark">
 
     <!-- Pre-Loader -->
-    <div id="loader"></div>
+    <!-- <div id="loader">
+        <div class="loader-content">
+            <img src="assets/img/logo/Short_logo.png" alt="Loader Logo" class="loader-logo">
+            <div class="loading-bar-container">
+                <div class="loading-bar"></div>
+                <span class="loading-text">0%</span>
+            </div>
+        </div>
+    </div> -->
 
     <!-- Mouse Cursor  -->
     <div class="mouseCursor cursor-outer"></div>
@@ -61,32 +69,63 @@
                 <div class="navigation">
                     <div class="container">
                         <div class="row align-items-center">
-                            <div class="col-xl-5 col-lg-4 col-6">
+                            <!-- Desktop Navigation -->
+                            <div class="col-12 d-none d-lg-block">
+                                <div class="d-flex justify-content-between align-items-center w-100">
+                                    <!-- Left Menu -->
+                                    <div class="main-menu text-start" style="flex: 1;">
+                                        <ul>
+                                            <li><a class="navlink" href="about.html"
+                                                    style="text-transform: uppercase;">About Us</a></li>
+                                            <li><a class="navlink" href="services.html"
+                                                    style="text-transform: uppercase;">Services</a></li>
+                                            <li><a class="navlink" href="projects.html"
+                                                    style="text-transform: uppercase;">Projects</a></li>
+                                        </ul>
+                                    </div>
+
+                                    <!-- Center Logo -->
+                                    <div class="logo text-center" style="flex: 1;">
+                                        <a href="index.html" class="logo">
+                                            <img src="assets/img/logo/full_logo.png" alt="Vanshika Logo"
+                                                style="max-height: 50%;">
+                                        </a>
+                                    </div>
+
+                                    <!-- Right Menu & CTA -->
+                                    <div class="d-flex align-items-center justify-content-end" style="flex: 1;">
+                                        <div class="main-menu" style="margin-right: 30px;">
+                                            <ul>
+                                                <li><a class="navlink" href="blog.html"
+                                                        style="text-transform: uppercase;">Media</a></li>
+                                                <li><a class="navlink" href="contact.html"
+                                                        style="text-transform: uppercase;">Career</a></li>
+                                            </ul>
+                                        </div>
+                                        <a href="contact.html" class="theme-btn"
+                                            style="padding: 12px 25px; text-transform: uppercase; font-size: 13px; line-height: 1; border-radius: 30px;">Let's
+                                            Talk</a>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- Mobile Logo -->
+                            <div class="col-8 d-block d-lg-none">
                                 <div class="logo">
                                     <a href="index.html" class="logo">
-                                        <h3>Vanshika</h3>
+                                        <img src="assets/img/logo/full_logo.png" alt="Vanshika Logo"
+                                            style="max-height: 65px; width: auto;">
                                     </a>
-                                </div>
-
-                            </div>
-                            <div class="col-xl-6 col-lg-7 d-none d-lg-block text-lg-end">
-                                <div class="main-menu">
-                                    <ul>
-                                        <li class="active"><a class="navlink" href="#">Home</a>
-
-                                        </li>
-
-
-                                        <li><a class="navlink" href="contact.html">Contact</a></li>
-                                    </ul>
                                 </div>
                             </div>
 
                             <!-- Mobile Menu -->
-                            <div class="mobile-nav-bar col-6 d-block d-lg-none">
+                            <div class="mobile-nav-bar col-4 d-block d-lg-none">
                                 <div class="mobile-nav-wrap">
                                     <div id="hamburger">
-                                        <i class="las la-bars"></i>
+                                        <span></span>
+                                        <span></span>
+                                        <span></span>
                                     </div>
                                     <!-- mobile menu - responsive menu  -->
                                     <div class="mobile-nav">
@@ -95,19 +134,19 @@
                                         </button>
                                         <nav class="sidebar-nav">
                                             <ul class="metismenu" id="mobile-menu">
-                                                <li><a class="has-arrow" href="#">Homes</a>
-
-                                                </li>
-
-                                                <li><a href="contact.html">Contact</a></li>
-
+                                                <li><a href="about.html">About Us</a></li>
+                                                <li><a href="services.html">Services</a></li>
+                                                <li><a href="projects.html">Projects</a></li>
+                                                <li><a href="blog.html">Media</a></li>
+                                                <li><a href="contact.html">Career</a></li>
                                             </ul>
                                         </nav>
                                         <div class="action-bar">
                                             <a href="mailto:info@Vanshika.com"><i
                                                     class="las la-envelope"></i>info@Vanshika.com</a>
                                             <a href="tel:123-456-7890"><i class="fal fa-phone"></i>123-456-7890</a>
-                                            <a href="contact.html" class="theme-btn">Contact Us</a>
+
+                                            <a href="contact.html" class="global-cta-btn">Let's Talk</a>
                                         </div>
                                     </div>
                                 </div>
@@ -127,7 +166,7 @@
             <!-- Hero Slider Area -->
             <div class="hero-slider-area">
                 <div class="hero-slider">
-                    <div class="hero-slider-item">
+                    <!-- <div class="hero-slider-item">
                         <div class="hero-bg" data-background="assets/img/banner.jpg"></div>
                         <div class="container">
                             <div class="row">
@@ -153,10 +192,16 @@
                                 </div>
                             </div>
                         </div>
-                    </div>
+                    </div> -->
                     <div class="hero-slider-item">
-                        <div class="hero-bg" data-background="assets/img/video-bg.jpg"></div>
-                        <div class="container">
+                        <video class="hero-bg-video" autoplay loop muted playsinline aria-hidden="true" tabindex="-1">
+                            <!-- Placeholder video, user will need to replace the src -->
+                            <source
+                                src="https://res.cloudinary.com/dhmxri9ao/video/upload/v1773395848/Khwaab_New_pxrpej.mp4"
+                                type="video/mp4">
+                        </video>
+                        <!-- <div class="hero-bg" style="background-color: rgba(0,0,0,0.3); background-image: none;"></div> -->
+                        <!-- <div class="container">
                             <div class="row">
                                 <div class="col-xl-12">
                                     <div class="hero-content">
@@ -166,37 +211,47 @@
                                     </div>
                                 </div>
                             </div>
-                        </div>
+                        </div> -->
                     </div>
                 </div>
             </div>
 
             <!-- About Section -->
-            <div class="about-section section-padding ">
+            <div class="about-section position-relative">
+                <div class="bg-logo-transparent">
+                    <img src="assets/img/logo/Short_logo.png" alt="Background Logo">
+                </div>
                 <div class="container">
-                    <div class="row">
-                        <div class="col-xl-5 col-lg-5">
-                            <div class="section-title">
-                                <h6>About</h6>
-                                <h2>The Studio</h2>
+                    <div class="row align-items-center">
+                        <!-- Left Card: Image Reveal -->
+                        <div class="col-xl-6 col-lg-6 mb-4 mb-lg-0 wow customFadeInUp" data-wow-delay=".4s"
+                            data-wow-duration="4s">
+                            <div class="about-image-reveal">
+                                <img src="assets/img/about/1-1.jpg" alt="Team at work">
                             </div>
                         </div>
-                        <div class="col-xl-7 col-lg-7">
-                            <div class="about-content-wrap">
-                                <h3 class="visible-slowly-right">Lorem Ipsum is simply dummy text of the printing and
-                                    typesetting industry. </h3>
-                                <br>
-                                <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem
-                                    Ipsum has been the industry's standard dummy text ever since the 1500s, when an
-                                    unknown printer took a galley of type and scrambled it to make a type specimen book.
-                                    It has survived not only five centuries, but also the leap into electronic
-                                    typesetting,
-                                    remaining essentially unchanged.nd more recently with desktop
-                                    publishing software like Aldus PageMaker including versions of Lorem Ipsum.</p>
-                                <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem
-                                    Ipsum has been the industry's standard dummy text ever since the 1500s, when an
-                                </p>
-                                <a class="link-text mt-30 wow tpfadeUp" href="about.html">More About Us</a>
+
+                        <!-- Right Card: Who We Are -->
+                        <div class="col-xl-6 col-lg-6">
+                            <div class="about-info-text-wrap ">
+                                <h2 class="section-heading text-uppercase wow customFadeInUp" data-wow-duration="4s"
+                                    data-wow-delay=".4s">Who
+                                    <span>We Are</span>
+                                </h2>
+                                <h4 class="wow customFadeInUp" data-wow-duration="4s" data-wow-delay=".8s">"Lorem ipsum
+                                    dolor sit amet consectetur"</h4><br>
+                                <p class="wow customFadeInUp" data-wow-duration="4s" data-wow-delay=".6s">At Vanshika,
+                                    we understand the
+                                    challenges of creating exceptional spaces that
+                                    blend elegance, quality, and functionality.</p>
+                                <p class="wow customFadeInUp" data-wow-duration="4s" data-wow-delay=".8s">As a
+                                    premier architecture firm, we've
+                                    made it our mission to simplify the design
+                                    process, ensuring that every project is executed flawlessly from initial
+                                    consultation to final installation.</p>
+
+                                <a href="contact.html" class="global-cta-btn mt-30">Let's Talk<i
+                                        class="fal fa-arrow-right ml-10"></i></a>
                             </div>
                         </div>
                     </div>
@@ -204,32 +259,41 @@
             </div>
 
             <!-- Principal Architect Section -->
-            <div class="principal-architect-section section-padding pt-100 pb-100 grey-bg">
+            <div class="principal_architect position-relative">
+
                 <div class="container">
                     <div class="row align-items-center">
-                        <div class="col-xl-5 col-lg-6">
-                            <div class="architect-img-wrap wow fadeInLeft" data-wow-delay=".3s">
-                                <img src="assets/img/team/1.jpg" alt="Vanshika - Principal Architect"
-                                    class="architect-img">
-                                <div class="architect-shape"></div>
+
+
+                        <!-- Right Card: Who We Are -->
+                        <div class="col-xl-6 col-lg-6">
+                            <div class="about-info-text-wrap ">
+                                <h2 class="section-heading text-uppercase wow customFadeInLeft" data-wow-duration="2.5s"
+                                    data-wow-delay=".6s">Principal<br>
+                                    <span>Architect</span>
+                                </h2>
+                                <h4 class="wow customFadeInLeft" data-wow-duration="2.5s" data-wow-delay=".8s">"Lorem
+                                    ipsum
+                                    dolor sit amet consectetur"</h4><br>
+                                <p class="wow customFadeInLeft" data-wow-duration="2.5s" data-wow-delay=".6s">At
+                                    Vanshika,
+                                    we understand the
+                                    challenges of creating exceptional spaces that
+                                    blend elegance, quality, and functionality.</p>
+                                <p class="wow customFadeInLeft" data-wow-duration="2.5s" data-wow-delay=".8s">As a
+                                    premier architecture firm, we've
+                                    made it our mission to simplify the design
+                                    process, ensuring that every project is executed flawlessly from initial
+                                    consultation to final installation.</p>
+
+
                             </div>
                         </div>
-                        <div class="col-xl-7 col-lg-6">
-                            <div class="architect-content wow fadeInRight" data-wow-delay=".5s">
-                                <div class="section-title">
-                                    <h6>Principal Architect</h6>
-                                    <h2>Design with Soul</h2>
-                                </div>
-                                <p class="mt-30">"Architecture is not just about building structures; it's about
-                                    creating environments that inspire and elevate the human spirit. Every line we draw
-                                    is a commitment to beauty and functionality."</p>
-                                <p>With over a decade of experience, Vanshika brings a unique perspective to modern
-                                    sustainable living, blending traditional aesthetics with contemporary needs.</p>
-
-                                <div class="signature-wrap mt-40">
-                                    <h2 class="signature">Vanshika</h2>
-                                    <span>Principal Architect</span>
-                                </div>
+                        <!-- Left Card: Image Reveal -->
+                        <div class="col-xl-6 col-lg-6 mb-4 mb-lg-0 wow customFadeInRight" data-wow-delay=".4s"
+                            data-wow-duration="2.5s">
+                            <div class="about-image-reveal">
+                                <img src="assets/img/about/1-1.jpg" alt="Team at work">
                             </div>
                         </div>
                     </div>
@@ -237,136 +301,105 @@
             </div>
 
             <!-- Service Section  -->
-            <div class="service-section section-padding pt-90 pb-100">
+            <div class="service-section pt-100 pb-100">
                 <div class="container">
-                    <div class="row">
-                        <div class="col-xl-4 col-lg-4">
-                            <div class="section-title">
-                                <div>
-                                    <h6>Services</h6>
-                                    <h2>Services</h2>
-                                </div>
-                            </div>
+                    <div class="row justify-content-center text-center mb-60">
+                        <div class="col-xl-10 col-lg-10">
+                            <h2 class="section-heading text-uppercase mb-30 wow customFadeInUp" data-wow-duration="2s"
+                                style="color: #c29a6c; font-weight: 300; font-size: 52px; letter-spacing: 2px;">
+                                SERVICES</h2>
+                            <p class="wow customFadeInUp" data-wow-duration="2s" data-wow-delay=".3s"
+                                style="font-size: 16px; color: #888; font-weight: 300; line-height: 1.8; max-width: 800px; margin: 0 auto;">
+                                Working across disciplines of architecture, interiors, furniture, lighting, product
+                                design, and landscaping, the dedicated team at Vanshika, led by immaculate style and
+                                sense, conceives and executes synergistic, forward-thinking, and visually striking
+                                projects.
+                            </p>
                         </div>
                     </div>
-                    <div class="row">
+                </div>
+
+                <!-- Full Width Luxury Slider -->
+                <div class="container-fluid p-0">
+                    <div class="services-luxury-slider">
                         <!-- Service Item 1 -->
-                        <div class="col-xl-4 col-lg-4 col-md-6">
-                            <div class="service-card-new wow fadeInUp" data-wow-delay=".3s">
-                                <div class="service-card-bg"
-                                    style="background-image: url('assets/img/service/service-1.jpg')"></div>
-                                <div class="pd-overlay"></div>
-                                <div class="service-num">01</div>
-                                <a href="services.html" class="service-arrow"><i class="las la-arrow-right"></i></a>
-                                <div class="service-card-content">
-                                    <h3>Architectural Design</h3>
-                                    <p>Comprehensive architectural planning and design services tailored to your vision
-                                        and needs.</p>
-                                </div>
+                        <div class="service-luxury-item">
+                            <div class="service-img-wrap">
+                                <img src="assets/img/service/service-1.jpg" alt="Iconic Architecture">
+                                <div class="overlay-gradient"></div>
+                            </div>
+                            <div class="service-title-center">
+                                <h3>ICONIC<br>ARCHITECTURE</h3>
                             </div>
                         </div>
                         <!-- Service Item 2 -->
-                        <div class="col-xl-4 col-lg-4 col-md-6">
-                            <div class="service-card-new wow fadeInUp" data-wow-delay=".5s">
-                                <div class="service-card-bg"
-                                    style="background-image: url('assets/img/service/service-2.jpg')"></div>
-                                <div class="pd-overlay"></div>
-                                <div class="service-num">02</div>
-                                <a href="services.html" class="service-arrow"><i class="las la-arrow-right"></i></a>
-                                <div class="service-card-content">
-                                    <h3>Interior Design</h3>
-                                    <p>Creating functional and beautiful interior spaces that reflect your personality
-                                        and style.</p>
-                                </div>
+                        <div class="service-luxury-item">
+                            <div class="service-img-wrap">
+                                <img src="assets/img/service/service-2.jpg" alt="Interior Design">
+                                <div class="overlay-gradient"></div>
+                            </div>
+                            <div class="service-title-center">
+                                <h3>INTERIOR<br>DESIGN</h3>
                             </div>
                         </div>
                         <!-- Service Item 3 -->
-                        <div class="col-xl-4 col-lg-4 col-md-6">
-                            <div class="service-card-new wow fadeInUp" data-wow-delay=".7s">
-                                <div class="service-card-bg"
-                                    style="background-image: url('assets/img/service/service-3.jpg')"></div>
-                                <div class="pd-overlay"></div>
-                                <div class="service-num">03</div>
-                                <a href="services.html" class="service-arrow"><i class="las la-arrow-right"></i></a>
-                                <div class="service-card-content">
-                                    <h3>Project Management</h3>
-                                    <p>Expert management of your construction projects ensuring timely and on-budget
-                                        delivery.</p>
-                                </div>
+                        <div class="service-luxury-item">
+                            <div class="service-img-wrap">
+                                <img src="assets/img/service/service-3.jpg" alt="Project Management">
+                                <div class="overlay-gradient"></div>
+                            </div>
+                            <div class="service-title-center">
+                                <h3>PROJECT<br>MANAGEMENT</h3>
                             </div>
                         </div>
                         <!-- Service Item 4 -->
-                        <div class="col-xl-4 col-lg-4 col-md-6">
-                            <div class="service-card-new wow fadeInUp" data-wow-delay=".3s">
-                                <div class="service-card-bg"
-                                    style="background-image: url('assets/img/service/service-4.jpg')"></div>
-                                <div class="pd-overlay"></div>
-                                <div class="service-num">04</div>
-                                <a href="services.html" class="service-arrow"><i class="las la-arrow-right"></i></a>
-                                <div class="service-card-content">
-                                    <h3>Historic Preservation</h3>
-                                    <p>Restoring and preserving historic structures with careful attention to detail and
-                                        heritage.</p>
-                                </div>
+                        <div class="service-luxury-item">
+                            <div class="service-img-wrap">
+                                <img src="assets/img/service/service-4.jpg" alt="Historic Preservation">
+                                <div class="overlay-gradient"></div>
+                            </div>
+                            <div class="service-title-center">
+                                <h3>HISTORIC<br>PRESERVATION</h3>
                             </div>
                         </div>
                         <!-- Service Item 5 -->
-                        <div class="col-xl-4 col-lg-4 col-md-6">
-                            <div class="service-card-new wow fadeInUp" data-wow-delay=".5s">
-                                <div class="service-card-bg"
-                                    style="background-image: url('assets/img/service/service-5.jpg')"></div>
-                                <div class="pd-overlay"></div>
-                                <div class="service-num">05</div>
-                                <a href="services.html" class="service-arrow"><i class="las la-arrow-right"></i></a>
-                                <div class="service-card-content">
-                                    <h3>Landscape Design</h3>
-                                    <p>Integrating natural elements to create harmonious and sustainable outdoor
-                                        environments.</p>
-                                </div>
+                        <div class="service-luxury-item">
+                            <div class="service-img-wrap">
+                                <img src="assets/img/service/service-5.jpg" alt="Landscape Design">
+                                <div class="overlay-gradient"></div>
+                            </div>
+                            <div class="service-title-center">
+                                <h3>LANDSCAPE<br>DESIGN</h3>
                             </div>
                         </div>
                         <!-- Service Item 6 -->
-                        <div class="col-xl-4 col-lg-4 col-md-6">
-                            <div class="service-card-new wow fadeInUp" data-wow-delay=".7s">
-                                <div class="service-card-bg"
-                                    style="background-image: url('assets/img/service/service-6.jpg')"></div>
-                                <div class="pd-overlay"></div>
-                                <div class="service-num">06</div>
-                                <a href="services.html" class="service-arrow"><i class="las la-arrow-right"></i></a>
-                                <div class="service-card-content">
-                                    <h3>Home Renovation</h3>
-                                    <p>Transforming existing homes into modern, efficient, and aesthetic living spaces.
-                                    </p>
-                                </div>
+                        <div class="service-luxury-item">
+                            <div class="service-img-wrap">
+                                <img src="assets/img/service/service-6.jpg" alt="Home Renovation">
+                                <div class="overlay-gradient"></div>
+                            </div>
+                            <div class="service-title-center">
+                                <h3>HOME<br>RENOVATION</h3>
                             </div>
                         </div>
                     </div>
                 </div>
             </div>
 
-            <!-- Feature Line -->
-            <div class="feature_wrap">
-                <div class="feature_item_one" data-background="assets/img/feature-bg.jpg">
-                    <h5>Construction Project</h5>
-                    <h5>Interior Design</h5>
-                    <h5>Concept Drawings</h5>
-                    <h5>Building Venture</h5>
-                </div>
-            </div>
+
 
             <!-- Project Section -->
-            <div id="project-1" class="project-section section-padding ">
+            <div id="project-1" class="project-section  ">
                 <div class="container-fluid p-0">
                     <div class="row justify-content-center mb-50">
                         <div class="col-xl-6 col-lg-6 text-center">
                             <div class="section-title">
-                                <h6>The Work</h6>
-                                <h2>Portfolio</h2>
+                                <h2 class="wow customFadeInUp" data-wow-duration="2s">Portfolio</h2>
                             </div>
                         </div>
                     </div>
                     <div class="row g-0">
-                        <div class="col-xl-12">
+                        <div class="col-xl-12 wow customFadeInUp" data-wow-duration="3s" data-wow-delay=".5s">
                             <div class="portfolio-slider">
                                 <!-- Slide 1 -->
                                 <div class="portfolio-slide-item">
@@ -375,8 +408,10 @@
                                             style="background-image: url('assets/img/project/slider1.jpg')"></div>
                                         <div class="portfolio-overlay"></div>
                                         <div class="portfolio-content">
-                                            <div class="port-num wow fadeInUp" data-wow-delay=".3s">01</div>
-                                            <div class="port-text wow fadeInUp" data-wow-delay=".5s">
+                                            <div class="port-num wow customFadeInUp" data-wow-duration="2s"
+                                                data-wow-delay=".3s">01</div>
+                                            <div class="port-text wow customFadeInUp" data-wow-duration="2s"
+                                                data-wow-delay=".5s">
                                                 <h3>The Beachfront Retreat</h3>
                                                 <p>We use high standards of engineering solution to create space as
                                                     useful as possible.</p>
@@ -391,8 +426,10 @@
                                             style="background-image: url('assets/img/project/1-2.jpg')"></div>
                                         <div class="portfolio-overlay"></div>
                                         <div class="portfolio-content">
-                                            <div class="port-num wow fadeInUp" data-wow-delay=".3s">02</div>
-                                            <div class="port-text wow fadeInUp" data-wow-delay=".5s">
+                                            <div class="port-num wow customFadeInUp" data-wow-duration="2s"
+                                                data-wow-delay=".3s">02</div>
+                                            <div class="port-text wow customFadeInUp" data-wow-duration="2s"
+                                                data-wow-delay=".5s">
                                                 <h3>The Contemporary Condo</h3>
                                                 <p>We provide integrated approach, competent organization of processes
                                                     and personal responsibility.</p>
@@ -407,8 +444,10 @@
                                             style="background-image: url('assets/img/project/1-3.jpg')"></div>
                                         <div class="portfolio-overlay"></div>
                                         <div class="portfolio-content">
-                                            <div class="port-num wow fadeInUp" data-wow-delay=".3s">03</div>
-                                            <div class="port-text wow fadeInUp" data-wow-delay=".5s">
+                                            <div class="port-num wow customFadeInUp" data-wow-duration="2s"
+                                                data-wow-delay=".3s">03</div>
+                                            <div class="port-text wow customFadeInUp" data-wow-duration="2s"
+                                                data-wow-delay=".5s">
                                                 <h3>The Hilltop Mansion</h3>
                                                 <p>Creating functional and beautiful interior spaces that reflect your
                                                     personality and style.</p>
@@ -423,8 +462,10 @@
                                             style="background-image: url('assets/img/project/1-4.jpg')"></div>
                                         <div class="portfolio-overlay"></div>
                                         <div class="portfolio-content">
-                                            <div class="port-num wow fadeInUp" data-wow-delay=".3s">04</div>
-                                            <div class="port-text wow fadeInUp" data-wow-delay=".5s">
+                                            <div class="port-num wow customFadeInUp" data-wow-duration="2s"
+                                                data-wow-delay=".3s">04</div>
+                                            <div class="port-text wow customFadeInUp" data-wow-duration="2s"
+                                                data-wow-delay=".5s">
                                                 <h3>The Modernist House</h3>
                                                 <p>Transforming existing homes into modern, efficient, and aesthetic
                                                     living spaces.</p>
@@ -438,92 +479,21 @@
                 </div>
             </div>
 
-            <!-- Process Section -->
-            <div class="process-section dark-bg section-padding">
-                <div class="container">
-                    <div class="row">
-                        <div class="col-xl-4 col-lg-4">
-                            <div class="section-title">
-                                <div>
-                                    <h6>How We Do</h6>
-                                    <h2>Our Process</h2>
-                                </div>
-                            </div>
-                        </div>
 
-                    </div>
-                    <div class="row mt-40">
-                        <div class="process-wrapper owl-carousel">
-                            <div class="single-process-item">
-                                <div class="process-up">
-                                    <div class="process-num">
-                                        <span>01</span>
-                                    </div>
-                                    <div class="process-icon">
-                                        <i class="las la-comments"></i>
-                                    </div>
-                                </div>
-                                <div class="process-down">
-                                    <p>We start with a thorough consultation to understand your needs, vision, and
-                                        requirements .</p>
-                                    <h4>Initial Consultation</h4>
-                                </div>
-                            </div>
-                            <div class="single-process-item">
-                                <div class="process-up">
-                                    <div class="process-num">
-                                        <span>02</span>
-                                    </div>
-                                    <div class="process-icon">
-                                        <i class="las la-pencil-ruler"></i>
-                                    </div>
-                                </div>
-                                <div class="process-down">
-                                    <p>Our team develops creative design concepts and layouts that align with your
-                                        vision and practical needs.</p>
-                                    <h4>Design Concept</h4>
-                                </div>
-                            </div>
-                            <div class="single-process-item">
-                                <div class="process-up">
-                                    <div class="process-num">
-                                        <span>03</span>
-                                    </div>
-                                    <div class="process-icon">
-                                        <i class="las la-tools"></i>
-                                    </div>
-                                </div>
-                                <div class="process-down">
-                                    <p>We bring the design to life with expert craftsmanship, managing the construction
-                                        process efficiently.</p>
-                                    <h4>Construction</h4>
-                                </div>
-                            </div>
-                            <div class="single-process-item">
-                                <div class="process-up">
-                                    <div class="process-num">
-                                        <span>04</span>
-                                    </div>
-                                    <div class="process-icon">
-                                        <i class="las la-home"></i>
-                                    </div>
-                                </div>
-                                <div class="process-down">
-                                    <p>A final walkthrough ensures every detail meets our high standards before we hand
-                                        over your new space.</p>
-                                    <h4>Final Work-Through</h4>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
 
             <!-- Testimonial Section -->
-            <div id="testimonial-1" class="testimonial-section section-padding pb-90">
+            <div id="testimonial-1" class="testimonial-section section-padding pt-100">
                 <div class="container">
+                    <div class="row justify-content-center mb-50">
+                        <div class="col-xl-6 col-lg-6 text-center">
+                            <div class="section-title">
+                                <h2 class="wow customFadeInUp" data-wow-duration="2s">Testimonials</h2>
+                            </div>
+                        </div>
+                    </div>
                     <div class="row">
-                        <div class="testimonial-wrapper owl-carousel">
+                        <div class="testimonial-wrapper owl-carousel wow customFadeInUp" data-wow-duration="2.5s"
+                            data-wow-delay=".4s">
                             <div class="single-testimonial-item">
                                 <div class="testimonial-img-wrap">
                                     <img src="assets/img/testimonial/1-4.jpg" alt="">
@@ -584,68 +554,121 @@
                 </div>
             </div>
 
-            <!-- CTA Area  -->
-            <section class="cta-img-area img-scale" data-background="assets/img/cta-bg.jpg">
-                <div class="cta-inner text-center">
-                    <div class="section-title">
-                        <div>
-                            <h2 class="text-white">Let's start your new <br> dream project</h2>
-                        </div>
-                        <a href="contact.html" class="theme-btn white-btn mt-30">Contact Us</a>
-                    </div>
-                </div>
-            </section>
 
-            <!-- Counter Section -->
-            <div class="counter-section section-padding pt-60 pb-60">
-                <div class="container">
-                    <div class="row gx-5">
-                        <div class="col-lg-3 col-md-3 col-sm-6">
-                            <div class="single-counter-box highlights">
-                                <p class="counter-number"><span class="purecounter" data-purecounter-duration="1"
-                                        data-purecounter-end="1995">1995</span></p>
-                                <h6>Since</h6>
+
+
+            <!-- Gallery Grid Section -->
+            <div class="gallery-section section-padding pt-0 ">
+                <div class="container-fluid p-0">
+                    <div class="row justify-content-center mb-50">
+                        <div class="col-xl-6 col-lg-6 text-center">
+                            <div class="section-title">
+                                <h2 class="wow customFadeInUp" data-wow-duration="2s">Featured Work</h2>
                             </div>
                         </div>
-                        <div class="col-lg-3 col-md-3 col-sm-6">
-                            <div class="single-counter-box">
-                                <p class="counter-number"><span class="purecounter" data-purecounter-duration="1"
-                                        data-purecounter-end="16">16</span></p>
-                                <h6>Offices</h6>
+                    </div>
+                    <div class="luxury-gallery-grid">
+                        <!-- Item 1: Large Horizontal (Spans 2 columns) -->
+                        <div class="gallery-item span-col-2 wow customFadeInUp" data-wow-duration="2s"
+                            data-wow-delay=".2s">
+                            <div class="gallery-img-wrap">
+                                <img src="assets/img/project/1-1.jpg" alt="Gallery Image 1">
                             </div>
                         </div>
-                        <div class="col-lg-3 col-md-3 col-sm-6">
-                            <div class="single-counter-box">
-                                <p class="counter-number"><span class="purecounter" data-purecounter-duration="1"
-                                        data-purecounter-end="215">215</span></p>
-                                <h6>Projects</h6>
+
+                        <!-- Item 2: Standard Square -->
+                        <div class="gallery-item wow customFadeInUp" data-wow-duration="2s" data-wow-delay=".4s">
+                            <div class="gallery-img-wrap">
+                                <img src="assets/img/project/3-2.jpg" alt="Gallery Image 2">
                             </div>
                         </div>
-                        <div class="col-lg-3 col-md-3 col-sm-6">
-                            <div class="single-counter-box">
-                                <p class="counter-number"><span class="purecounter" data-purecounter-duration="1"
-                                        data-purecounter-end="47">47</span></p>
-                                <h6>Countries</h6>
+
+                        <!-- Item 3: Tall Vertical (Spans 2 rows) -->
+                        <div class="gallery-item span-row-2 wow customFadeInUp" data-wow-duration="2s"
+                            data-wow-delay=".6s">
+                            <div class="gallery-img-wrap">
+                                <img src="assets/img/project/3-6.jpg" alt="Gallery Image 3">
+                            </div>
+                        </div>
+
+                        <!-- Item 4: Text Quote Box -->
+                        <div class="gallery-item gallery-text-box wow customFadeInUp" data-wow-duration="2s"
+                            data-wow-delay=".8s">
+                            <div class="text-box-inner">
+                                <i class="las la-quote-left"></i>
+                                <h3>"Design is not just what it looks like... It is how it works."</h3>
+                                <p>- Steve Jobs</p>
+                            </div>
+                        </div>
+
+                        <!-- Item 5: Standard Square -->
+                        <div class="gallery-item wow customFadeInUp" data-wow-duration="2s" data-wow-delay="1s">
+                            <div class="gallery-img-wrap">
+                                <img src="assets/img/project/1-4.jpg" alt="Gallery Image 5">
+                            </div>
+                        </div>
+
+                        <!-- Item 6: Large Horizontal (Spans 2 columns) -->
+                        <div class="gallery-item span-col-2 wow customFadeInUp" data-wow-duration="2s"
+                            data-wow-delay="1.2s">
+                            <div class="gallery-img-wrap">
+                                <img src="assets/img/project/1-3.jpg" alt="Gallery Image 6">
+                            </div>
+                        </div>
+
+                        <!-- Item 7: Tall Vertical (Spans 2 rows) -->
+                        <div class="gallery-item span-row-2 wow customFadeInUp" data-wow-duration="2s"
+                            data-wow-delay="1.4s">
+                            <div class="gallery-img-wrap">
+                                <img src="assets/img/project/3-1.jpg" alt="Gallery Image 7">
+                            </div>
+                        </div>
+
+                        <!-- Item 8: Standard Square -->
+                        <div class="gallery-item wow customFadeInUp" data-wow-duration="2s" data-wow-delay="1.6s">
+                            <div class="gallery-img-wrap">
+                                <img src="assets/img/project/3-2.jpg" alt="Gallery Image 8">
+                            </div>
+                        </div>
+
+                        <!-- Item 9: Brand Box -->
+                        <div class="gallery-item gallery-text-box theme-dark wow customFadeInUp" data-wow-duration="2s"
+                            data-wow-delay="1.8s">
+                            <div class="text-box-inner">
+                                <h3>Transforming Spaces into Experiences</h3>
+                                <p>Uncompromising Quality & Aesthetics</p>
+                            </div>
+                        </div>
+
+                        <!-- Item 10: Horizontal (Spans 2 columns) -->
+                        <div class="gallery-item span-col-2 wow customFadeInUp" data-wow-duration="2s"
+                            data-wow-delay="2s">
+                            <div class="gallery-img-wrap">
+                                <img src="assets/img/project/3-2.jpg" alt="Gallery Image 10">
                             </div>
                         </div>
                     </div>
                 </div>
             </div>
 
+
+
+
             <!-- Blog Section -->
-            <div class="blog-section section-padding pt-0 pb-70">
+            <div class="blog-section section-padding">
                 <div class="container">
-                    <div class="row">
-                        <div class="col-xl-7 col-lg-8">
+                    <div class="row justify-content-center mb-50">
+                        <div class="col-xl-7 col-lg-8 text-center">
                             <div class="section-title">
-                                <h6>Read Articles</h6>
-                                <h2>Latest Post</h2>
+                                <!-- <h6>Read Articles</h6> -->
+                                <h2 class="wow customFadeInUp" data-wow-duration="2s">Latest Post</h2>
                             </div>
                         </div>
 
                     </div>
                     <div class="row">
-                        <div class="col-xl-4 col-lg-4 col-md-6 col-12 wow fadeInUp animated" data-wow-delay="200ms">
+                        <div class="col-xl-4 col-lg-4 col-md-6 col-12 wow customFadeInUp" data-wow-duration="2s"
+                            data-wow-delay=".2s">
                             <div class="single-blog-item">
                                 <div class="blog-bg">
                                     <img src="assets/img/blog/1-1.jpg" alt="">
@@ -655,16 +678,14 @@
                                         <p>Architecture / August 31, 2025</p>
                                     </div>
                                     <h3><a href="blog-details.html">How to Design a <br> Sustaintable Home</a></h3>
-                                    <div class="blog-info">
-                                        <div class="blog-author">
-                                            <p>by Jane Collins</p>
-                                        </div>
-
+                                    <div class="blog-author">
+                                        <p>by Jane Collins</p>
                                     </div>
                                 </div>
                             </div>
                         </div>
-                        <div class="col-xl-4 col-lg-4 col-md-6 col-12 wow fadeInUp animated" data-wow-delay="400ms">
+                        <div class="col-xl-4 col-lg-4 col-md-6 col-12 wow customFadeInUp" data-wow-duration="2s"
+                            data-wow-delay=".4s">
                             <div class="single-blog-item">
                                 <div class="blog-bg">
                                     <img src="assets/img/blog/1-2.jpg" alt="">
@@ -675,16 +696,14 @@
                                     </div>
                                     <h3><a href="blog-details.html">The Importance of Lighting <br> Design in Interior
                                             Spaces</a></h3>
-                                    <div class="blog-info">
-                                        <div class="blog-author">
-                                            <p>by Paul Roberts</p>
-                                        </div>
-
+                                    <div class="blog-author">
+                                        <p>by Paul Roberts</p>
                                     </div>
                                 </div>
                             </div>
                         </div>
-                        <div class="col-xl-4 col-lg-4 col-md-6 col-12 wow fadeInUp animated" data-wow-delay="600ms">
+                        <div class="col-xl-4 col-lg-4 col-md-6 col-12 wow customFadeInUp" data-wow-duration="2s"
+                            data-wow-delay=".6s">
                             <div class="single-blog-item">
                                 <div class="blog-bg">
                                     <img src="assets/img/blog/1-3.jpg" alt="">
@@ -695,10 +714,8 @@
                                     </div>
                                     <h3><a href="blog-details.html">Creating a Functional <br> Home Office Space</a>
                                     </h3>
-                                    <div class="blog-info">
-                                        <div class="blog-author">
-                                            <p>by Sarah Gomez</p>
-                                        </div>
+                                    <div class="blog-author">
+                                        <p>by Sarah Gomez</p>
                                     </div>
                                 </div>
                             </div>
@@ -706,6 +723,20 @@
                     </div>
                 </div>
             </div>
+            <!-- CTA Area  -->
+            <section class="cta-img-area img-scale section-padding wow customFadeInUp" data-wow-duration="2.5s"
+                data-background="assets/img/cta-bg.jpg">
+                <div class="cta-inner text-center">
+                    <div class="section-title">
+                        <div>
+                            <h2 class="text-white wow customFadeInUp" data-wow-duration="2s" data-wow-delay=".4s">Let's
+                                start your new <br> dream project</h2>
+                        </div>
+                        <a href="contact.html" class="theme-btn white-btn mt-30 wow customFadeInUp"
+                            data-wow-duration="2s" data-wow-delay=".8s">Contact Us</a>
+                    </div>
+                </div>
+            </section>
 
 
             <!-- Footer Area -->
@@ -715,11 +746,11 @@
                         <div class="row gy-5">
                             <div class="col-lg-4 col-md-6 col-sm-12">
                                 <a href="index.html" class="logo">
-                                    <h3>Vanshika</h3>
+                                    <img src="assets/img/logo/Short_logo.png" alt="Vanshika Logo">
                                 </a>
-                                <p>We are the top architecture firm <br> to deliver best works. Innovative services <br>
+                                <!-- <p>We are the top architecture firm <br> to deliver best works. Innovative services <br>
                                     highly customized.
-                                </p>
+                                </p> -->
                             </div>
                             <div class="col-lg-3 col-md-6">
                                 <h5>Office</h5>

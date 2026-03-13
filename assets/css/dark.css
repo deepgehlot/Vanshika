@@ -3,7 +3,7 @@ body.dark{
 	color: #777;
 }
 body.dark h1, body.dark h2, body.dark h3, body.dark h4, body.dark h5, body.dark h6{
-	color: #fff;
+	color: #c29a6c;
 }
 
 body.dark .section-title h6{
@@ -197,7 +197,7 @@ body.dark .single-blog-item:hover .blog-content h3 a{
 }
 
 body.dark .section-title span{
-    color: #777;
+    color: #c29a6c;
 }
 
 body.dark #home-3 .video-play-btn{

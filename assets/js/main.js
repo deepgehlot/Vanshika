@@ -231,6 +231,40 @@
       ],
     });
 
+    // Contact Page Testimonial
+    // Contact Page Testimonial
+    var contactTestimonial = $(".contact-testimonial-carousel");
+    contactTestimonial.owlCarousel({
+      items: 1,
+      dots: false,
+      nav: false,
+      loop: true,
+      autoplay: true,
+      autoplayHoverPause: true,
+      autoplayTimeout: 3000,
+      smartSpeed: 1000,
+      margin: 30,
+      responsive: {
+        0: {
+          items: 1,
+        },
+        768: {
+          items: 2,
+        },
+        992: {
+          items: 2,
+        },
+      },
+    });
+
+    // Custom Navigation for Contact Page Testimonial
+    $('.arrow-icons .la-arrow-left').click(function() {
+        contactTestimonial.trigger('prev.owl.carousel');
+    });
+    $('.arrow-icons .la-arrow-right').click(function() {
+        contactTestimonial.trigger('next.owl.carousel');
+    });
+
   // Process Slider
 
   $(".process-wrapper").owlCarousel({
@@ -482,7 +516,17 @@
   //Hide Loading Box (Preloader)
   function handlePreloader() {
     if ($("#loader").length) {
-      $("#loader").delay(200).fadeOut(500);
+        var count = 0;
+        var counter = setInterval(function() {
+            if (count < 101) {
+                $('.loading-text').text(count + '%');
+                $('.loading-bar').css('width', count + '%');
+                count++;
+            } else {
+                clearInterval(counter);
+                $("#loader").fadeOut(500);
+            }
+        }, 20); // Adjust speed of counter here
     }
   }
 
@@ -566,6 +610,115 @@
     dots: false,
     pauseOnHover: false,
     pauseOnFocus: false,
+  });
+
+
+  // About Image Slider (Split Section)
+  $(".about-image-slider").slick({
+    fade: true,
+    autoplay: true,
+    autoplaySpeed: 4000,
+    speed: 2000,
+    infinite: true,
+    cssEase: 'ease-in-out',
+    arrows: false,
+    dots: false,
+    pauseOnHover: false,
+    pauseOnFocus: false,
+  });
+
+  // Projects Isotope Filter
+  $(window).on('load', function () {
+    var $grid = $('.project-grid').isotope({
+      itemSelector: '.grid-item',
+      percentPosition: true,
+      masonry: {
+        columnWidth: '.grid-item'
+      }
+    });
+
+    // filter items on button click
+    $('.project-filters').on('click', 'button', function () {
+      var filterValue = $(this).attr('data-filter');
+      $grid.isotope({ filter: filterValue });
+    });
+
+    // active class for buttons
+    $('.project-filters button').on('click', function (event) {
+      $(this).siblings('.active').removeClass('active');
+      $(this).addClass('active');
+      event.preventDefault();
+    });
+  });
+
+  // Project Detail Slider
+  if($('.project-main-slider').length) {
+      // Set background image from the img src for each slide
+      $('.project-main-slider .project-slide-item').each(function() {
+          var imgSrc = $(this).find('img').attr('src');
+          $(this).css('background-image', 'url(' + imgSrc + ')');
+      });
+
+      $('.project-main-slider').slick({
+          slidesToShow: 1,
+          slidesToScroll: 1,
+          arrows: true,
+          fade: true,
+          asNavFor: '.project-thumb-slider'
+      });
+      
+      $('.project-thumb-slider').slick({
+          slidesToShow: 5,
+          slidesToScroll: 1,
+          asNavFor: '.project-main-slider',
+          dots: false,
+          arrows: false,
+          centerMode: true,
+          focusOnSelect: true,
+          responsive: [
+            {
+              breakpoint: 991,
+              settings: {
+                slidesToShow: 4
+              }
+            },
+            {
+              breakpoint: 768,
+              settings: {
+                slidesToShow: 3
+              }
+            }
+          ]
+      });
+  }
+
+  // Luxury Services Slider
+  $('.services-luxury-slider').slick({
+    slidesToShow: 1,
+    slidesToScroll: 1,
+    autoplay: true,
+    autoplaySpeed: 3000,
+    speed: 1000,
+    arrows: true,
+    dots: false,
+    infinite: true,
+    centerMode: true,
+    centerPadding: '0',
+    responsive: [
+      {
+        breakpoint: 1200,
+        settings: {
+          slidesToShow: 1
+        }
+      },
+      {
+        breakpoint: 768,
+        settings: {
+          slidesToShow: 1,
+          centerPadding: '50px'
+        }
+      }
+    ]
   });
 
 })(window.jQuery);
