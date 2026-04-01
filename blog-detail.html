@@ -17,8 +17,6 @@
     <link href="assets/css/line-awesome.min.css" rel="stylesheet">
     <!-- Font Awesome CSS -->
     <link href="assets/css/fontAwesomePro.css" rel="stylesheet">
-    <!-- Animate CSS-->
-    <link href="assets/css/animate.css" rel="stylesheet">
     <!-- Bar Filler CSS -->
     <link href="assets/css/barfiller.css" rel="stylesheet">
     <!-- Magnific Popup Video -->
@@ -67,38 +65,68 @@
 
     <div id="smooth-wrapper">
 
-        <!-- Header Area  -->
         <div class="header-area">
             <div id="header-sticky">
                 <div class="navigation">
                     <div class="container">
                         <div class="row align-items-center">
-                            <div class="col-xl-5 col-lg-4 col-6">
+                            <!-- Desktop Navigation -->
+                            <div class="col-12 d-none d-lg-block">
+                                <div class="d-flex justify-content-between align-items-center w-100">
+                                    <!-- Left Menu -->
+                                    <div class="main-menu text-start" style="flex: 1;">
+                                        <ul>
+                                            <li><a class="navlink" href="about.html"
+                                                    style="text-transform: uppercase;">About Us</a></li>
+                                            <li><a class="navlink" href="services.html"
+                                                    style="text-transform: uppercase;">Services</a></li>
+                                            <li><a class="navlink" href="projects.html"
+                                                    style="text-transform: uppercase;">Projects</a></li>
+                                        </ul>
+                                    </div>
+
+                                    <!-- Center Logo -->
+                                    <div class="logo text-center" style="flex: 1;">
+                                        <a href="index.html" class="logo">
+                                            <img src="assets/img/logo/full_logo.png" alt="Vanshika Logo"
+                                                style="max-height: 50%;">
+                                        </a>
+                                    </div>
+
+                                    <!-- Right Menu & CTA -->
+                                    <div class="d-flex align-items-center justify-content-end" style="flex: 1;">
+                                        <div class="main-menu" style="margin-right: 30px;">
+                                            <ul>
+                                                <li><a class="navlink" href="blog.html"
+                                                        style="text-transform: uppercase;">Blogs</a></li>
+                                                <li><a class="navlink" href="faq.html"
+                                                        style="text-transform: uppercase;">FAQs</a></li>
+                                            </ul>
+                                        </div>
+                                        <a href="contact.html" class="theme-btn"
+                                            style="padding: 12px 25px; text-transform: uppercase; font-size: 13px; line-height: 1; border-radius: 30px;">Let's
+                                            Talk</a>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- Mobile Logo -->
+                            <div class="col-8 d-block d-lg-none">
                                 <div class="logo">
                                     <a href="index.html" class="logo">
-                                        <img src="assets/img/logo/full_logo.png" alt="Vanshika Logo">
+                                        <img src="assets/img/logo/full_logo.png" alt="Vanshika Logo"
+                                            style="max-height: 65px; width: auto;">
                                     </a>
-                                </div>
-
-                            </div>
-                            <div class="col-xl-6 col-lg-7 d-none d-lg-block text-lg-end">
-                                <div class="main-menu">
-                                    <ul>
-                                        <li><a class="navlink" href="index.html">Home</a></li>
-                                        <li><a class="navlink" href="about.html">About</a></li>
-                                        <li><a class="navlink" href="projects.html">Projects</a></li>
-                                        <li class="active"><a class="navlink" href="blog.html">Blog</a></li>
-                                        <li><a class="navlink" href="faq.html">FAQ</a></li>
-                                        <li><a class="navlink" href="contact.html">Contact</a></li>
-                                    </ul>
                                 </div>
                             </div>
 
                             <!-- Mobile Menu -->
-                            <div class="mobile-nav-bar col-6 d-block d-lg-none">
+                            <div class="mobile-nav-bar col-4 d-block d-lg-none">
                                 <div class="mobile-nav-wrap">
                                     <div id="hamburger">
-                                        <i class="las la-bars"></i>
+                                        <span></span>
+                                        <span></span>
+                                        <span></span>
                                     </div>
                                     <!-- mobile menu - responsive menu  -->
                                     <div class="mobile-nav">
@@ -107,19 +135,19 @@
                                         </button>
                                         <nav class="sidebar-nav">
                                             <ul class="metismenu" id="mobile-menu">
-                                                <li><a href="index.html">Home</a></li>
-                                                <li><a href="about.html">About</a></li>
+                                                <li><a href="about.html">About Us</a></li>
+                                                <li><a href="services.html">Services</a></li>
                                                 <li><a href="projects.html">Projects</a></li>
-                                                <li><a href="blog.html">Blog</a></li>
-                                                <li><a href="faq.html">FAQ</a></li>
-                                                <li><a href="contact.html">Contact</a></li>
+                                                <li><a href="blog.html">Media</a></li>
+                                                <li><a href="contact.html">Career</a></li>
                                             </ul>
                                         </nav>
                                         <div class="action-bar">
                                             <a href="mailto:info@Vanshika.com"><i
                                                     class="las la-envelope"></i>info@Vanshika.com</a>
                                             <a href="tel:123-456-7890"><i class="fal fa-phone"></i>123-456-7890</a>
-                                            <a href="contact.html" class="theme-btn">Contact Us</a>
+
+                                            <a href="contact.html" class="global-cta-btn">Let's Talk</a>
                                         </div>
                                     </div>
                                 </div>
@@ -129,6 +157,7 @@
                 </div>
             </div>
         </div>
+
 
         <div id="smooth-content">
 
@@ -300,8 +329,6 @@
     <script src="assets/js/jquery-3.6.0.min.js"></script>
     <!-- Bootstrap JS -->
     <script src="assets/js/bootstrap.min.js"></script>
-    <!-- Wow JS -->
-    <script src="assets/js/wow.min.js"></script>
     <!-- Pure Counter JS -->
     <script src="assets/js/pure-counter.js"></script>
     <!-- Owl Carousel JS -->

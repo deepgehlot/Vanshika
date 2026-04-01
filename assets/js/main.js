@@ -133,63 +133,60 @@
       ]
   });
 
-// Testimonial One
-
-    $(".testimonial-wrapper").owlCarousel({
-      items: 1,
-      dots: false,
-      nav: true,
-      loop: true,
-      autoplay: false,
-      autoplayTimeout: 5000,
-      smartSpeed: 3000,
-      slideSpeed: 300,
-      margin: 30,
-      navText: [
-        "<i class='las la-arrow-left'></i>",
-        "<i class='las la-arrow-right'></i>",
-      ],
-    });
-
-  // Service Slider
-
-    $(".service-slider").owlCarousel({
-      items: 1,
-      dots: true,
-      nav: false,
-      loop: true,
-      autoplay: true,
-      autoplayTimeout: 5000,
-      smartSpeed: 3000,
-      slideSpeed: 300,
-      margin: 30,
-      responsive: {
-        0: {
+  // Testimonial & Service Sliders
+  $(function() {
+      // Testimonial One
+      if ($(".testimonial-wrapper").length) {
+        $(".testimonial-wrapper").owlCarousel({
           items: 1,
-          nav: false,
           dots: false,
-        },
-        600: {
+          nav: true,
+          loop: true,
+          autoplay: true,
+          autoplayTimeout: 5000,
+          smartSpeed: 1000,
+          margin: 30,
+          navText: [
+            "<i class='las la-arrow-left'></i>",
+            "<i class='las la-arrow-right'></i>",
+          ],
+        });
+      }
+
+      // Service Slider (Legacy & New Luxury)
+      if ($(".service-slider, .services-luxury-slider").length) {
+        $(".service-slider, .services-luxury-slider").owlCarousel({
           items: 1,
-          nav: false,
-          dots: false,
-        },
-        768: {
-          items: 2,
-          nav: false,
-          dots: false,
-        },
-        1100: {
-          items: 3,
-          nav: false,
           dots: true,
-        },
-      },
-      navText: [
-        "<i class='las la-arrow-left'></i>",
-        "<i class='las la-arrow-right'></i>",
-      ],
-    });
+          nav: true,
+          loop: true,
+          autoplay: true,
+          autoplayTimeout: 5000,
+          smartSpeed: 1000,
+          margin: 30,
+          navText: [
+            "<i class='las la-arrow-left'></i>",
+            "<i class='las la-arrow-right'></i>",
+          ],
+          responsive: {
+            0: {
+              items: 1,
+              nav: false,
+              dots: false,
+            },
+            768: {
+              items: 1,
+              nav: true,
+            },
+            1100: {
+              items: 1,
+              nav: true,
+              dots: true,
+            },
+          },
+        });
+      }
+  });
 
   // Testimonial Two
 
@@ -416,9 +413,6 @@
     duration: 5000,
   });
 
-  //jQuery Animation
-  new WOW().init();
-
   // Nice select
   $("select").niceSelect();
 
@@ -524,7 +518,9 @@
                 count++;
             } else {
                 clearInterval(counter);
-                $("#loader").fadeOut(500);
+                $("#loader").fadeOut(500, function() {
+                  $(window).trigger('preloaderDone');
+                });
             }
         }, 20); // Adjust speed of counter here
     }
@@ -599,18 +595,20 @@
   }
   itCursor();
   // Hero Slider
-  $(".hero-slider").slick({
-    fade: true,
-    autoplay: true,
-    autoplaySpeed: 4000,
-    speed: 2000,
-    infinite: true,
-    cssEase: 'ease-in-out',
-    arrows: false,
-    dots: false,
-    pauseOnHover: false,
-    pauseOnFocus: false,
-  });
+  if ($(".hero-slider").length) {
+    $(".hero-slider").slick({
+      fade: true,
+      autoplay: true,
+      autoplaySpeed: 4000,
+      speed: 2000,
+      infinite: true,
+      cssEase: 'ease-in-out',
+      arrows: false,
+      dots: false,
+      pauseOnHover: false,
+      pauseOnFocus: false,
+    });
+  }
 
 
   // About Image Slider (Split Section)
@@ -627,29 +625,77 @@
     pauseOnFocus: false,
   });
 
-  // Projects Isotope Filter
-  $(window).on('load', function () {
-    var $grid = $('.project-grid').isotope({
-      itemSelector: '.grid-item',
-      percentPosition: true,
-      masonry: {
-        columnWidth: '.grid-item'
+    // Projects Isotope Filter (Handled by projects-handler.js if dynamic, otherwise fallback here)
+    if ($('.project-grid').length && !$ ('.project-grid').hasClass('dynamic-ready')) {
+      var $grid = $('.project-grid').isotope({
+        itemSelector: '.grid-item',
+        percentPosition: true,
+        masonry: {
+          columnWidth: '.grid-item'
+        }
+      });
+  
+      // filter items on button click
+      $('.project-filters').on('click', 'button', function () {
+        var filterValue = $(this).attr('data-filter');
+        $grid.isotope({ filter: filterValue });
+      });
+  
+      // active class for buttons
+      $('.project-filters button').on('click', function (event) {
+        $(this).siblings('.active').removeClass('active');
+        $(this).addClass('active');
+        event.preventDefault();
+      });
+    }
+
+    // Projects Grid Animation (fired exactly when preloader is done)
+    $(window).on('preloaderDone', function() {
+      if ($('.project-card-unique').length > 0) {
+        gsap.utils.toArray('.project-card-unique').forEach(function(card, index) {
+          gsap.fromTo(card, 
+            { opacity: 0, y: 80 }, 
+            {
+              opacity: 1, 
+              y: 0, 
+              duration: 2, 
+              ease: 'power4.out',
+              delay: (index % 3) * 0.15, // simulates a smooth stagger across 3 columns
+              scrollTrigger: {
+                trigger: card,
+                start: 'top 95%',
+                toggleActions: 'play reverse play reverse'
+              }
+            }
+          );
+        });
+        ScrollTrigger.refresh();
       }
     });
 
-    // filter items on button click
-    $('.project-filters').on('click', 'button', function () {
-      var filterValue = $(this).attr('data-filter');
-      $grid.isotope({ filter: filterValue });
+    // Services Page (.v-service-card) Entrance Stagger
+    $(window).on('preloaderDone', function() {
+      if ($('.v-service-card').length > 0) {
+        gsap.utils.toArray('.v-service-card').forEach(function(card, index) {
+          gsap.fromTo(card, 
+            { opacity: 0, y: 80 },
+            {
+              opacity: 1,
+              y: 0,
+              duration: 1.5,
+              ease: "power3.out",
+              delay: (index % 2) * 0.15, // 2 column stagger
+              scrollTrigger: {
+                trigger: card,
+                start: "top 95%",
+                toggleActions: 'play none none none' // Play only once on scroll
+              }
+            }
+          );
+        });
+        ScrollTrigger.refresh();
+      }
     });
-
-    // active class for buttons
-    $('.project-filters button').on('click', function (event) {
-      $(this).siblings('.active').removeClass('active');
-      $(this).addClass('active');
-      event.preventDefault();
-    });
-  });
 
   // Project Detail Slider
   if($('.project-main-slider').length) {
@@ -692,33 +738,312 @@
       });
   }
 
-  // Luxury Services Slider
-  $('.services-luxury-slider').slick({
-    slidesToShow: 1,
-    slidesToScroll: 1,
-    autoplay: true,
-    autoplaySpeed: 3000,
-    speed: 1000,
-    arrows: true,
-    dots: false,
-    infinite: true,
-    centerMode: true,
-    centerPadding: '0',
-    responsive: [
-      {
-        breakpoint: 1200,
-        settings: {
-          slidesToShow: 1
-        }
-      },
-      {
-        breakpoint: 768,
-        settings: {
-          slidesToShow: 1,
-          centerPadding: '50px'
-        }
+
+
+  $(function () {
+    // GSAP slide in animations for about section
+    if ($('.gsap-slide-left').length > 0) {
+      gsap.utils.toArray('.gsap-slide-left').forEach(function (element) {
+        gsap.from(element, {
+          scrollTrigger: {
+            trigger: element,
+            start: 'top 95%',
+            end: 'top 45%',
+            scrub: 1
+          },
+          x: -150,
+          opacity: 0,
+          duration: 5,
+          ease: 'power3.in'
+        });
+      });
+    }
+
+    if ($('.gsap-slide-right').length > 0) {
+      gsap.utils.toArray('.gsap-slide-right').forEach(function (element) {
+        gsap.from(element, {
+          scrollTrigger: {
+            trigger: element,
+            start: 'top 95%',
+            end: 'top 45%',
+            scrub: 1
+          },
+          x: 150,
+          opacity: 0,
+          duration: 5,
+          ease: 'power3.in',
+          delay: 0.2
+        });
+      });
+    }
+
+    // Mission Vision Animations
+    if ($('.gsap-fade-up').length > 0) {
+      gsap.from('.gsap-fade-up', {
+        scrollTrigger: {
+          trigger: '.mission-vision-section',
+          start: 'top 95%',
+          end: 'top 60%',
+          scrub: 1
+        },
+        y: 50,
+        opacity: 0,
+        duration: 1.2,
+        ease: 'power3.out'
+      });
+    }
+
+    if ($('.gsap-slide-up-mission').length > 0) {
+      gsap.from('.gsap-slide-up-mission', {
+        scrollTrigger: {
+          trigger: '.mission-vision-section',
+          start: 'top 85%',
+          end: 'top 40%',
+          scrub: 1
+        },
+        y: 80,
+        opacity: 0,
+        duration: 1.2,
+        ease: 'power3.out'
+      });
+    }
+
+    if ($('.gsap-slide-up-vision').length > 0) {
+      gsap.from('.gsap-slide-up-vision', {
+        scrollTrigger: {
+          trigger: '.mission-vision-section',
+          start: 'top 85%',
+          end: 'top 40%',
+          scrub: 1
+        },
+        y: 80,
+        opacity: 0,
+        duration: 1.2,
+        delay: 0.2,
+        ease: 'power3.out'
+      });
+    }
+
+    // Blog Grid Stagger Animation
+    $(window).on('preloaderDone', function() {
+      if ($('.gsap-blog-anim').length > 0) {
+        gsap.utils.toArray('.gsap-blog-anim').forEach(function(card, index) {
+          gsap.fromTo(card,
+            { opacity: 0, y: 60 },
+            {
+              opacity: 1,
+              y: 0,
+              duration: 2.5,
+              ease: 'power3.out',
+              delay: (index % 3) * 0.2, // simulates a smooth stagger across 3 columns
+              scrollTrigger: {
+                trigger: card,
+                start: 'top 85%',
+                toggleActions: 'play reverse play reverse'
+              }
+            }
+          );
+        });
+        ScrollTrigger.refresh();
       }
-    ]
+    });
+
+    // About & Principal Architect GSAP Animations
+    if ($('.about-image-reveal').length > 0) {
+      gsap.utils.toArray('.about-image-reveal').forEach(function(elem) {
+        let img = $(elem).find('img');
+        let isPrincipal = $(elem).closest('.principal_architect').length > 0;
+        
+        let clipStart = isPrincipal ? "polygon(0% 0%, 0% 0%, 0% 100%, 0% 100%)" : "polygon(100% 0%, 100% 0%, 100% 100%, 100% 100%)";
+        let clipEnd = "polygon(0% 0%, 100% 0%, 100% 100%, 0% 100%)";
+        
+        // 1. Entrance animation (clip-path reveal)
+        gsap.fromTo(elem, 
+          { clipPath: clipStart },
+          {
+            clipPath: clipEnd,
+            duration: 1.5,
+            ease: "power3.inOut",
+            scrollTrigger: {
+              trigger: elem,
+              start: 'top 85%',
+              once: true
+            }
+          }
+        );
+        
+        // 2. Smooth Parallax on scroll for the image
+        gsap.fromTo(img, 
+          { yPercent: -15, scale: 1.2 },
+          {
+            yPercent: 15,
+            scale: 1.2,
+            ease: "none",
+            scrollTrigger: {
+              trigger: elem,
+              start: 'top bottom',
+              end: 'bottom top',
+              scrub: 1.5
+            }
+          }
+        );
+      });
+    }
+
+    // Background Logo Parallax
+    if ($('.bg-logo-transparent').length > 0) {
+      gsap.utils.toArray('.bg-logo-transparent').forEach(function(bg) {
+        gsap.fromTo(bg, 
+          { yPercent: -40 },
+          {
+            yPercent: 40,
+            ease: "none",
+            scrollTrigger: {
+              trigger: $(bg).parent(),
+              start: "top bottom",
+              end: "bottom top",
+              scrub: 2
+            }
+          }
+        );
+      });
+    }
+
+    if ($('.about-info-text-wrap').length > 0) {
+      gsap.utils.toArray('.about-info-text-wrap').forEach(function(wrap) {
+        gsap.fromTo($(wrap).children(':not(br)'), 
+          { opacity: 0, y: 30 },
+          {
+            opacity: 1,
+            y: 0,
+            duration: 1.2,
+            stagger: 0.2,
+            ease: 'power3.out',
+            scrollTrigger: {
+              trigger: wrap,
+              start: 'top 85%',
+              once: true
+            }
+          }
+        );
+      });
+    }
+
+
+
+    // Portfolio Initial Entrance (Bottom to Top)
+    if ($('.portfolio-section .portfolio-slide-item').length > 0) {
+      gsap.fromTo('.portfolio-section .portfolio-slide-item', 
+        { opacity: 0, y: 100 },
+        {
+          opacity: 1,
+          y: 0,
+          duration: 1.5,
+          stagger: 0.2,
+          ease: "power3.out",
+          scrollTrigger: {
+            trigger: '.portfolio-section',
+            start: "top 80%",
+            once: true
+          }
+        }
+      );
+    }
+
+    // Featured Work (Gallery) Staggered Reveal
+    if ($('.luxury-gallery-grid').length > 0) {
+      // 1. Reveal cards from bottom
+      gsap.fromTo('.luxury-gallery-grid .gallery-item', 
+        { opacity: 0, y: 100 },
+        {
+          opacity: 1,
+          y: 0,
+          duration: 1.5,
+          stagger: 0.15,
+          ease: "power3.out",
+          scrollTrigger: {
+            trigger: '.luxury-gallery-grid',
+            start: "top 80%",
+            once: true
+          }
+        }
+      );
+      
+      // 2. Animate images scaling down inside the cards for luxury effect
+      gsap.fromTo('.luxury-gallery-grid .gallery-img-wrap img', 
+        { scale: 1.3 },
+        {
+          scale: 1.15, // matches the parallax scale so it transitions seamlessly
+          duration: 2,
+          stagger: 0.15,
+          ease: "power3.out",
+          scrollTrigger: {
+            trigger: '.luxury-gallery-grid',
+            start: "top 80%",
+            once: true
+          }
+        }
+      );
+    }
+
+    // Latest Post (Blog) Staggered Reveal
+    if ($('.blog-section .single-blog-item').length > 0) {
+      gsap.fromTo('.blog-section .single-blog-item', 
+        { opacity: 0, y: 100 },
+        {
+          opacity: 1,
+          y: 0,
+          duration: 1.5,
+          stagger: 0.2,
+          ease: "power3.out",
+          scrollTrigger: {
+            trigger: '.blog-section',
+            start: "top 80%",
+            once: true
+          }
+        }
+      );
+    }
+
+    // Global Luxury Smooth Text Animation
+    const textRevealElements = gsap.utils.toArray('.section-heading, .section-title h2, .section-title p, .testimonial-text p, .testimonial-author h6, .testimonial-author p, .gallery-text-box .text-box-inner *, .port-text h3, .port-text p, .port-num, .cta-inner h2');
+    textRevealElements.forEach(function(elem) {
+      gsap.fromTo(elem, 
+        { opacity: 0, y: 40 },
+        {
+          opacity: 1,
+          y: 0,
+          duration: 1.5,
+          ease: "power2.out",
+          scrollTrigger: {
+            trigger: elem,
+            start: "top 90%",
+            once: true
+          }
+        }
+      );
+    });
+
+    // Global Subtle Image Parallax Elements
+    const parallaxImages = gsap.utils.toArray('.portfolio-bg, .blog-bg img, .cta-img-area, .service-img-wrap img, .gallery-img-wrap img');
+    parallaxImages.forEach(function(img) {
+      // Adding a scale helps prevent exposing edges as the item moves
+      gsap.fromTo(img, 
+        { yPercent: -8, scale: 1.15 },
+        {
+          yPercent: 8,
+          scale: 1.15,
+          ease: "none",
+          scrollTrigger: {
+            trigger: $(img).parent(),
+            start: "top bottom",
+            end: "bottom top",
+            scrub: 1.5
+          }
+        }
+      );
+    });
+
   });
 
 })(window.jQuery);
